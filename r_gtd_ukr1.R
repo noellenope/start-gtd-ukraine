@@ -1,6 +1,7 @@
 library(dplyr)
 library(tidyr)
 library(stringr)
+
 ##
 data <- read.csv("./data/globalterrorismdb_0221dist.csv")
 data <- rename(data, "eventid" = ï..eventid)
