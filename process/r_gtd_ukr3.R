@@ -31,7 +31,16 @@ str(a[[1]]$results)
 str_detect(a[[1]]$results[[1]]$types, pattern = "street_address")
 
 # We can lapply through the data to see whether a street address is in the list.
-lapply(a[[1]]$results[[1]]$types, 
+lapply(a[[1]]$results[[11]]$types, 
        function(f) str_detect(string = f, pattern = "street_address"))
+
+
+# We can sapply or lapply through a list of results as well:
+
+sapply(a[[10]]$results[2[]],
+      function(f) str_detect(string = f, pattern = "address_component"))
+
+
+
 
 
