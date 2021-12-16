@@ -5,7 +5,7 @@ library(stringr)
 a <- purrr::array_tree(jsonl)
 b <- purrr::array_branch(a)
 
-
+#################################
 # Example exploration of data:
 #  We can See the 'compound_codes' and 'global_codes' here:
 str(a[[1]])
@@ -43,19 +43,31 @@ test <- sapply(a[[2]]$results[[1]]$formatted_address,
 
 
 
-###
-###
-###
-###
-###
+## concatenated .json example tree:
+
+## jsonl:
+# $ :List of 3
+# ..$ plus_code:List of 2
+# .. ..$ compound_code: chr "2WWR+MVC Makiivka, Donetsk Oblast, Ukraine"
+# .. ..$ global_code  : chr "8GWV2WWR+MVC"
+# ..$ results  :List of 8
+# .. ..$ :List of 6
+# .. ..$ :List of 5
+# .. ..$ :List of 5
+# .. ..$ :List of 5
+# .. ..$ :List of 5
+# .. ..$ :List of 5
+# .. ..$ :List of 5
+# .. ..$ :List of 5
+# ..$ status   : chr "OK"
 
 
 
 
-###
-###
-###
-
+##
+## Loop for retrieving specific results from 
+## .json file converted to R list-object:
+##
 
 for (i in 1:length(a)) {
    
@@ -97,33 +109,3 @@ for (i in 1:length(a)) {
 ###
 ###
 ###
-
-print(jsonl)
-
-  
-
-  
-    
-    
-
-
-
-  
-## concatenated .json example tree:
-
-## jsonl:
-# $ :List of 3
-# ..$ plus_code:List of 2
-# .. ..$ compound_code: chr "2WWR+MVC Makiivka, Donetsk Oblast, Ukraine"
-# .. ..$ global_code  : chr "8GWV2WWR+MVC"
-# ..$ results  :List of 8
-# .. ..$ :List of 6
-# .. ..$ :List of 5
-# .. ..$ :List of 5
-# .. ..$ :List of 5
-# .. ..$ :List of 5
-# .. ..$ :List of 5
-# .. ..$ :List of 5
-# .. ..$ :List of 5
-# ..$ status   : chr "OK"
-
