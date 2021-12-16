@@ -41,11 +41,82 @@ test <- sapply(a[[2]]$results[[1]]$formatted_address,
       function(f) str_extract_all(string = f, pattern = ".*"))
 
 ###
-for (i in 1:n) {
-  output[[i]] <- f(input[[i]])
+###
+###
+###
+###
+
+
+a[[1]]$results[[1]]$geometry
+
+
+is.list(a[[1]]$results[[1]]$geometry)
+
+a[[1]]$results
+str(a[[1]]$results)
+
+
+
+###
+###
+###
+
+is.numeric(a[[2]]$results[[1]]$geometry[[1]]$lat)
+
+length(a)
+
+length(a[[1]])
+
+length(a[[1]]$results[[9]])
+
+
+purrr::as_vector()
+
+test <- for (i in 1:length(a)) {
+  
+  for (j in 1:length(a[[i]]$results)) {
+    
+    for (k in 1:length(a[[i]]$results[[j]]$geometry)) {
+      
+     lat[k] <- a[[i]]$results[[j]]$geometry$location$lat 
+     lon[k] <- a[[i]]$results[[j]]$geometry$location$lng
+     
+     coords <- cbind(lat[k], lon[k])
+     
+     print(coords)
+    
   }
+  
+ }
+  
+}
 
 
-purrr::detect_index(a[[2]]$results, .f = "streed_address")
+coords
+  
 
+  
+    
+    
+
+
+
+  
+## concatenated .json example tree:
+
+## jsonl:
+# $ :List of 3
+# ..$ plus_code:List of 2
+# .. ..$ compound_code: chr "2WWR+MVC Makiivka, Donetsk Oblast, Ukraine"
+# .. ..$ global_code  : chr "8GWV2WWR+MVC"
+# ..$ results  :List of 8
+# .. ..$ :List of 6
+# .. ..$ :List of 5
+# .. ..$ :List of 5
+# .. ..$ :List of 5
+# .. ..$ :List of 5
+# .. ..$ :List of 5
+# .. ..$ :List of 5
+# .. ..$ :List of 5
+# ..$ status   : chr "OK"
 
