@@ -8,7 +8,6 @@ library(dplyr)
 library(tidyr)
 library(stringr)
 library(rjson)
-install.packages("listviewer")
 library(listviewer)
 
 

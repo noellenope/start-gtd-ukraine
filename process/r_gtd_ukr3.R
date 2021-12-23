@@ -46,6 +46,6 @@ for (i in 1:n) {
   }
 
 
-purrr::detect_index(a[[2]]$results, .f = "streed_address")
+purrr::detect_index(a[[2]]$results, .f = "street_address")
 
 
