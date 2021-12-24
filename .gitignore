@@ -4,3 +4,5 @@
 .Ruserdata
 *.csv
 concat.json
+extract_*
+extract_*.json

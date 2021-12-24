@@ -2,6 +2,12 @@ library(dplyr)
 library(purrr)
 library(stringr)
 library(tibble)
+library(jsonlite)
+
+## This section will show how we are extracting and 
+## organizing data from some gnarly, disorganized
+## .json files.
+
 ## working with an array tree:
 a <- purrr::array_tree(jsonl)
 b <- purrr::array_branch(a)
@@ -40,8 +46,7 @@ lapply(a[[1]]$results[[11]]$types,
 # We can sapply or lapply through a list of results as well:
 
 test <- sapply(a[[2]]$results[[1]]$formatted_address,
-      function(f) str_extract_all(string = f, pattern = ".*"))
-
+               function(f) str_extract_all(string = f, pattern = ".*"))
 
 
 ## concatenated .json example tree:
@@ -61,55 +66,3 @@ test <- sapply(a[[2]]$results[[1]]$formatted_address,
 # .. ..$ :List of 5
 # .. ..$ :List of 5
 # ..$ status   : chr "OK"
-
-
-
-
-##
-## Loop for retrieving specific results from 
-## .json file converted to R list-object:
-##
-
-getwd()
-
-options(digits=8)
-
-for (i in 1:length(a)) {
-  
-  storage.df <- i
-
-  if (a[[i]]$status != "OK") {
-     
-    next }
-  
-  for (j in 1:length(a[[i]]$results)) {
-    
-    for (k in 1:length(a[[i]]$results[[j]]$formatted_address)) {
-        
-      address <- paste(a[[i]]$results[[j]]$formatted_address[[k]])
-     
-      lat[k] <- a[[i]]$results[[j]]$geometry$location$lat 
-      lon[k] <- a[[i]]$results[[j]]$geometry$location$lng
-     
-      coords <- c(lat[k], lon[k])
-      
-      test <- rbind(coords, address)
-      
-      test[2,2] <- paste(storage.df)
-      
-      print(test)
-    
-    
-      
-      }
-        
-    }
-        
-  }
-  
-
-
-
-###
-###
-###
