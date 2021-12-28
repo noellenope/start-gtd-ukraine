@@ -91,15 +91,11 @@ for (i in 1:length(a)) {
             ## replicate the return of 'obj' into 'obj2'
             obj2 <- rep(obj)
             
-            ## pass 'obj2' as a data.frame object to 'obj3'
-            obj3 <- as.data.frame(obj2)
+            # CRIT #### There is a bit here which was re-written incorrectly
+            # CRIT #### We need to set the key/value pair names for 'obj2' 
+            # CRIT #### to pass onto a json writer, then used later on in 
+            # CRIT #### concatenation of the json object.
             
-            ## turn 'obj4' into a list:
-            obj3
-            
-            obj4 <- list()
-            
-        
             
             print(obj4)
             ## write 'obj3' as a .json array:
