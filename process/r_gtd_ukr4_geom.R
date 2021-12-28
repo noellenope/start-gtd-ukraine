@@ -3,12 +3,15 @@ library(rjson)
 library(sf)
 library(sp)
 library(dplyr)
+library(rjson)
 
 ## Set options to eight for maximum geometric accuracy:
 options(digits = 8)
 
 ## Read the file:
-ukr_m <- fromJSON(txt = "./data/merge_output/extr_all.json")
+## using 'jsonlite' package!!
+
+ukr_m <- jsonlite::fromJSON(txt = "./data/merge_output/extr_all.json")
 
 ## Set the 'gtd_num' variable as factor:
 ukr_m$gtd_num <- as.factor(ukr_m$gtd_num)
@@ -16,6 +19,8 @@ ukr_m$gtd_num <- as.factor(ukr_m$gtd_num)
 ## Convert to numeric:
 ukr_m$lat <- as.numeric(ukr_m$lat)
 ukr_m$lon <- as.numeric(ukr_m$lon)
+
+glimpse(ukr_m)
 
 
 ## convert to spatial feature:
