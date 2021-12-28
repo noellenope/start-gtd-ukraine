@@ -74,7 +74,7 @@ for (i in 1:length(a)) {
       
       ## store object 'test' as matrix.data.frame in 'obj'
       
-      obj <- as.matrix.data.frame(test)
+      obj <- as.array(test)
       
       str(obj)
       
@@ -94,13 +94,23 @@ for (i in 1:length(a)) {
             ## pass 'obj2' as a data.frame object to 'obj3'
             obj3 <- as.data.frame(obj2)
             
+            ## turn 'obj4' into a list:
+            obj3
+            
+            obj4 <- list()
+            
+        
+            
+            print(obj4)
             ## write 'obj3' as a .json array:
-            json1 <- jsonlite::toJSON(obj3)
+            json1 <- jsonlite::toJSON(obj4)
             
             ## write 'json1' as .json file; sequence the file names along the integers
             ## 'i' and 'j'. 
             
-            write_json(json1, path = paste("./data/ukr_gtd_json/extract_",i,j,".json"))
+            
+            ## This is SOMEHOW BROKEN but the results are in aggregated.json OR extr_all.json
+            write_json(json1, path = paste("E:/Home Dev Env/test_env/",i,j,".json"))
             
             ## Integers 'i' and 'j' in the file names may now be used to organize the aggregate
             ## results in a way that streamlines extraction of most accurate points and total information
