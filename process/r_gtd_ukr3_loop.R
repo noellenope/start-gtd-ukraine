@@ -91,10 +91,12 @@ for (i in 1:length(a)) {
             ## replicate the return of 'obj' into 'obj2'
             obj2 <- rep(obj)
             
-            # CRIT #### There is a bit here which was re-written incorrectly
-            # CRIT #### We need to set the key/value pair names for 'obj2' 
-            # CRIT #### to pass onto a json writer, then used later on in 
-            # CRIT #### concatenation of the json object.
+            ## CRIT: This section was is, honestly, as a waste of some memory?
+            ##
+            ## Seriously though, this part returns obj3 as a derivative of the
+            ## 'obj2' created from the results of the loop.
+            ##
+            ## 
             
             obj3 <- list()
             
