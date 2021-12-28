@@ -76,15 +76,17 @@ for (i in 1:length(a)) {
       
       obj <- as.matrix.data.frame(test)
       
+      str(obj)
+      
       ## for integer 'm' in 1:length(test)
       
       for (m in 1:length(test)) {
             
             ## make 'obj2' a list
             obj2 <- list
-            
+  
             ## set the dimensions of 'obj2' from 'obj'
-            obj2 <- dim(obj)  
+            obj2 <- dim(obj)
             
             ## replicate the return of 'obj' into 'obj2'
             obj2 <- rep(obj)

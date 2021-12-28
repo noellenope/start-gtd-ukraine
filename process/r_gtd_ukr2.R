@@ -17,11 +17,12 @@ setwd("E:/Home Dev Env/nodejs/reverse-geocode/Responses/")
 df_json <- read_json("./GET Reverse Geocode1638656513931.json")
 df_list <- fromJSON("./GET Reverse Geocode1638656513931.json")
 
-
 files <- list.files(path ="./", pattern = ".json", full.names = TRUE, recursive = FALSE)
 
-jsonl <- lapply(files, function(f) fromJSON(file = f))
-jsonc <- toJSON(jsonl)
+glimpse(files)
+
+jsonl_2 <- lapply(files, function(f) fromJSON(file = f))
+jsonc_2 <- toJSON(jsonl)
 write(jsonc, file = "concat.json")
 
 ukraine <- rowid_to_column(ukraine)
