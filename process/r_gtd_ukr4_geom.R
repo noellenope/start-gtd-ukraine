@@ -4,6 +4,8 @@ library(sf)
 library(sp)
 library(dplyr)
 library(rjson)
+library(stringr)
+
 
 ## Set options to eight for maximum geometric accuracy:
 options(digits = 8)
@@ -25,3 +27,26 @@ glimpse(ukr_m)
 
 ## convert to spatial feature:
 ukr_m2 <- st_as_sf(ukr_m, coords = c("lat", "lon"), crs = 4326)
+
+
+##
+##
+##
+
+library(osmdata)
+library(ggmap)
+library(leaflet)
+library(dplyr)
+
+test <- ukr_m %>% 
+  filter(gtd_num == 120)
+
+test
+
+print(test$address)
+
+m <- leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(lng = test$lon, lat = test$lat, popup = test$address)
+
+nchar(ukr_m$address)
