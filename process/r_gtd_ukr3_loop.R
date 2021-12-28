@@ -96,21 +96,30 @@ for (i in 1:length(a)) {
             # CRIT #### to pass onto a json writer, then used later on in 
             # CRIT #### concatenation of the json object.
             
+            obj3 <- list()
             
-            print(obj4)
+            obj3$lat <- obj2[[1]][1]
+            obj3$address <- obj2[[2]][1]
+            obj3$lon <- obj2[[3]][1]
+            obj3$gtd_num <- obj2[[4]][1]
+            
+            obj3$lat <- as.numeric(obj3$lat)
+            obj3$lon <- as.numeric(obj3$lon)
+            
             ## write 'obj3' as a .json array:
-            json1 <- jsonlite::toJSON(obj4)
+            json1 <- jsonlite::toJSON(obj3)
             
             ## write 'json1' as .json file; sequence the file names along the integers
             ## 'i' and 'j'. 
             
             
             ## This is SOMEHOW BROKEN but the results are in aggregated.json OR extr_all.json
-            write_json(json1, path = paste("E:/Home Dev Env/test_env/",i,j,".json"))
+            write(json1, file = paste("E:/test",i,j,".json"))
             
             ## Integers 'i' and 'j' in the file names may now be used to organize the aggregate
             ## results in a way that streamlines extraction of most accurate points and total information
             ## within a single object in the next step.
+            
       }
       
     }
