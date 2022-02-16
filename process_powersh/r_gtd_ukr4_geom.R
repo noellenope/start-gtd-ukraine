@@ -30,7 +30,7 @@ ukr_m2 <- st_as_sf(ukr_m, coords = c("lat", "lon"), crs = 4326)
 
 
 ##
-##
+## 
 ##
 
 library(osmdata)
@@ -38,8 +38,9 @@ library(ggmap)
 library(leaflet)
 library(dplyr)
 
+
 test <- ukr_m %>% 
-  filter(gtd_num == 120)
+  filter(gtd_num == 140)
 
 test
 
@@ -48,5 +49,7 @@ print(test$address)
 m <- leaflet() %>% 
   addTiles() %>% 
   addMarkers(lng = test$lon, lat = test$lat, popup = test$address)
+
+m
 
 nchar(ukr_m$address)
